@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 
     /* Parameters */
     grid_parameters.num_nodes = 40;       //Number of nodes
-    grid_parameters.L = 3.2;              //Length of domain
+    grid_parameters.L = 1.6;              //Length of domain
     physical_parameters.U = 1.0;          //Fluid velocity
     physical_parameters.Cao = 1.0;        //Inlet concentration
     physical_parameters.Da = 1.0;         //Diffusion coefficient
@@ -43,16 +43,6 @@ int main(int argc, char* argv[]) {
     for(int i = 0; i < grid_parameters.num_nodes; ++i) {
         printf("i: %i, z: %f, Ca: %f\n", i, solver_data.z_c[i], solver_data.Ca[i]);
     }
-
-    /* Compare with analytical result */
-    double Per, Damk, k, q;
-    Per = physical_parameters.U*grid_parameters.L/physical_parameters.Da;
-    k = 1.0;
-    Damk = k*grid_parameters.L/physical_parameters.U;
-    q = sqrt(1+4*Damk/Per);
-    double Cal = 4*q*exp(Per/2) / (pow(1+q, 2)*exp(Per*q/2) - pow(1-q,2)*exp(-Per*q/2));
-    printf("Cal: %f\n", Cal);
-    printf("Pe: %f\n", Per);
 
     /* Deallocate data */
     delete [] solver_data.Ca;
