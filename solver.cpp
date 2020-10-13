@@ -62,9 +62,4 @@ void solver(p_params physical_parameters, g_params grid_parameters, s_data* solv
 
         ++outer_it;
     }
-
-//    for(i = 1; i < num_nodes - 1; ++i) {
-//        printf("i: %i, error: %f\n", i, 1.0 - (-Da*(solver_data->Ca[i] - solver_data->Ca[i-1])/del_z + Da*(solver_data->Ca[i+1] - solver_data->Ca[i])/del_z + U*solver_data->Ca[i-1] - U*solver_data->Ca[i]) / (-ra(solver_data->Ca[i])*del_z));
-//    }
-
 }
