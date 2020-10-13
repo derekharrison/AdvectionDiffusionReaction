@@ -62,4 +62,6 @@ void solver(p_params physical_parameters, g_params grid_parameters, s_data* solv
 
         ++outer_it;
     }
+
+    delete [] Ca_prev_it;
 }
